@@ -16,13 +16,7 @@ const PORT = process.env.PORT || 4000;
 const videoRoutes = require("./routes/videoRoutes");
 const path = require("path");
 // Middleware
-
-
-app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true, // if you're using cookies or auth headers
-}));
-
+app.use(cors());
 app.use(express.json());
 
 // Routes
