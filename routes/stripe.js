@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const stripe = require('stripe')('sk_test_51RRsjBGbWNSYCGPpbxRWBnTGjPl4NGX52v6rMLhPg3dPJAEj6nqUZAThDpicp4kej3msMMtBuE6eY8rqplWmpgBq00EtzI3gIG'); // Replace with your Stripe secret key
+const dotenv = require('dotenv');
+dotenv.config();
+const stripe = require('stripe')(process.env.STRIPE_TEST_API); // Replace with your Stripe secret key
 const Subscription = require("../models/Subscriptions")
 router.post('/create-checkout-session', async (req, res) => {
   const { userId } = req.body;
