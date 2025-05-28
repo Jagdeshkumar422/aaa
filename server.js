@@ -7,6 +7,9 @@ const cors = require('cors');
 const authRoutes = require('./routes/authRoute'); // Make sure file is named authRoute.js
 const imagesRoutes = require('./routes/imagesRoute'); // Make sure file is named authRoute.js
 const StripeRoutes = require('./routes/stripe'); // Make sure file is named authRoute.js
+const BootRoutes = require('./routes/adminBots'); // Make sure file is named authRoute.js
+const chat = require('./routes/Chat'); // Make sure file is named authRoute.js
+const Subscription = require('./routes/subscription'); // Make sure file is named authRoute.js
 
 // Load environment variables
 dotenv.config();
@@ -27,6 +30,9 @@ app.use("/api/", videoRoutes);
 app.use('/api', authRoutes);
 app.use('/api', imagesRoutes);
 app.use('/api', StripeRoutes);
+app.use('/api', Subscription);
+app.use('/api/bot', BootRoutes);
+app.use("/api/chat", chat);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI, {

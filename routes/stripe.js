@@ -17,8 +17,8 @@ router.post('/create-checkout-session', async (req, res) => {
           quantity: 1,
         },
       ],
-            success_url: `https://darkseagreen-gaur-282516.hostingersite.com/subscription-success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: 'https://darkseagreen-gaur-282516.hostingersite.com/subscription-cancel',
+            success_url: `http://localhost:3000/subscription-success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: 'http://localhost:3000/subscription-cancel',
     });
 
     res.json({ id: session.id });
